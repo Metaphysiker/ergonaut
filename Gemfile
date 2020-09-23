@@ -1,9 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'activerecord-mysql-adapter'
-#gem 'activerecord-mysql-adapter'
 gem 'rails', '3.2.13'
-gem 'mysql'
+gem 'mysql2', '~> 0.3.2'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'strong_parameters'
 gem 'kaminari'
@@ -12,7 +10,6 @@ gem 'coffee-rails', '~> 3.2.1'
 gem 'thin'
 gem 'fuzzily'
 gem 'whenever', require: false
-#gem 'pg', '>= 0.18', '< 2.0'
 
 gem 'turbolinks'
 gem 'jquery-turbolinks'
@@ -58,10 +55,7 @@ gem 'font-awesome-rails'
 gem 'carrierwave'
 
 # Use unicorn as the app server
-#gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 gem 'capistrano', '~> 2.15.5'
-
-# To use debugger
-# gem 'debugger'
