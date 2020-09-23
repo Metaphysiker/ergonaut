@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'mysql2', '~> 0.3.2'
+gem 'mysql2'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'strong_parameters'
 gem 'kaminari'
@@ -10,9 +10,7 @@ gem 'coffee-rails', '~> 3.2.1'
 gem 'thin'
 gem 'fuzzily'
 gem 'whenever', require: false
-gem 'json', '~> 1.8', '>= 1.8.3'
-gem 'eventmachine', '~> 1.2', '>= 1.2.7'
-gem 'pg', '>= 0.18', '< 2.0'
+#gem 'pg', '>= 0.18', '< 2.0'
 
 gem 'turbolinks'
 gem 'jquery-turbolinks'
@@ -58,7 +56,7 @@ gem 'font-awesome-rails'
 gem 'carrierwave'
 
 # Use unicorn as the app server
-gem 'unicorn'
+#gem 'unicorn'
 
 # Deploy with Capistrano
 gem 'capistrano', '~> 2.15.5'
