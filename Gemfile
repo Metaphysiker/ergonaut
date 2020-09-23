@@ -10,6 +10,9 @@ gem 'coffee-rails', '~> 3.2.1'
 gem 'thin'
 gem 'fuzzily'
 gem 'whenever', require: false
+gem 'json', '~> 1.8', '>= 1.8.3'
+gem 'eventmachine', '~> 1.2', '>= 1.2.7'
+gem 'pg', '>= 0.18', '< 2.0'
 
 gem 'turbolinks'
 gem 'jquery-turbolinks'

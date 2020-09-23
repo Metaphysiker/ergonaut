@@ -50,18 +50,18 @@ ActiveRecord::Schema.define(:version => 20190408140402) do
   create_table "referee_assignments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "submission_id"
-    t.datetime "created_at",                                    :null => false
-    t.datetime "updated_at",                                    :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.boolean  "agreed"
-    t.text     "decline_comment",           :limit => 16777215
+    t.text     "decline_comment"
     t.string   "auth_token"
     t.datetime "assigned_at"
     t.datetime "agreed_at"
     t.datetime "declined_at"
     t.datetime "report_due_at"
     t.boolean  "canceled"
-    t.text     "comments_for_editor",       :limit => 16777215
-    t.text     "comments_for_author",       :limit => 16777215
+    t.text     "comments_for_editor"
+    t.text     "comments_for_author"
     t.boolean  "report_completed"
     t.datetime "report_completed_at"
     t.boolean  "recommend_reject"
@@ -83,24 +83,24 @@ ActiveRecord::Schema.define(:version => 20190408140402) do
     t.string   "subject"
     t.string   "to"
     t.string   "cc"
-    t.text     "body",                  :limit => 16777215
+    t.text     "body"
     t.string   "attachments"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
   end
 
   create_table "submissions", :force => true do |t|
     t.string   "title"
     t.integer  "user_id"
-    t.datetime "created_at",                                                    :null => false
-    t.datetime "updated_at",                                                    :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.boolean  "decision_approved"
     t.string   "decision"
     t.boolean  "archived"
     t.boolean  "withdrawn"
     t.string   "manuscript_file"
-    t.text     "area_editor_comments_for_managing_editors", :limit => 16777215
-    t.text     "area_editor_comments_for_author",           :limit => 16777215
+    t.text     "area_editor_comments_for_managing_editors"
+    t.text     "area_editor_comments_for_author"
     t.integer  "area_id"
     t.integer  "original_id"
     t.integer  "revision_number"

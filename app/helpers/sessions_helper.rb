@@ -14,17 +14,17 @@ module SessionsHelper
   end
 
   def current_user
-    @current_user ||= User.find_by_remember_token(cookies[:remember_token])
+    #@current_user ||= User.find_by_remember_token(cookies[:remember_token])
   end
-  
+
   def editor?
     current_user && current_user.editor?
   end
-  
+
   def managing_editor?
     current_user && current_user.managing_editor?
   end
-  
+
   def area_editor?
     current_user && current_user.area_editor?
   end
@@ -33,15 +33,15 @@ module SessionsHelper
     self.current_user = nil
     cookies.delete(:remember_token)
   end
-  
+
   def store_location
     session[:return_to] = request.url
   end
-  
+
   def redirect_to_role_home
     redirect_to role_home_path
   end
-  
+
   def role_home_path
     if current_user  # logged in?
       if current_user.editor?  # editor?
@@ -57,7 +57,7 @@ module SessionsHelper
       signin_path
     end
   end
-  
+
   def redirect_back_or(default)
     redirect_to(session[:return_to] || default)
     session.delete(:return_to)

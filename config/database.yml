@@ -1,0 +1,27 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: ergonaut_dev
+  pool: 5
+  username: ergonaut_dev
+  password: blitzkrieg
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: ergonaut_test
+  pool: 5
+  username: ergonaut_dev
+  password: blitzkrieg
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: ergonaut
+  pool: 5
+  username: root
+  password: password
+  socket: /var/run/mysqld/mysqld.sock
