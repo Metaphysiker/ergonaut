@@ -4051,3 +4051,69 @@ Processing by UsersController#new as HTML
   Rendered layouts/_header.html.erb (0.6ms)
   Rendered layouts/_footer.html.erb (0.3ms)
 Completed 200 OK in 240ms (Views: 239.1ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2020-09-23 21:18:42 +0200
+  [1m[36mUser Load (95.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1
+  [1m[36mRefereeAssignment Load (0.3ms)[0m  [1mSELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 1[0m
+  [1m[35mEXPLAIN (521.1ms)[0m  EXPLAIN SELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 1
+EXPLAIN for: SELECT `referee_assignments`.* FROM `referee_assignments`  WHERE `referee_assignments`.`user_id` = 1
++----+-------------+---------------------+------------+------+---------------+------+---------+------+------+----------+-------------+
+| id | select_type | table               | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra       |
++----+-------------+---------------------+------------+------+---------------+------+---------+------+------+----------+-------------+
+|  1 | SIMPLE      | referee_assignments | NULL       | ALL  | NULL          | NULL | NULL    | NULL |    1 |    100.0 | Using where |
++----+-------------+---------------------+------------+------+---------------+------+---------+------+------+----------+-------------+
+1 row in set (0.52 sec)
+
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 1[0m
+Processing by AuthorCenterController#index as HTML
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 21:18:50 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (148.1ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 2655ms (Views: 2654.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2020-09-23 21:18:57 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "session"=>{"email"=>"s.raess@me.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 70ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-09-23 21:18:58 +0200
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1
+  [1m[36mRefereeAssignment Load (0.2ms)[0m  [1mSELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 1
+Processing by AuthorCenterController#index as HTML
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 21:18:58 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 192ms (Views: 192.0ms | ActiveRecord: 0.0ms)
