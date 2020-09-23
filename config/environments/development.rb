@@ -50,9 +50,19 @@ Ergonaut::Application.configure do
   #   authentication:       'plain',
   #   enable_starttls_auto: true  }
 
-  # Mailcatcher
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { address: "localhost", port: 1025 }
+  config.action_mailer.smtp_settings = {
+    :address              => 'smtp.gmail.com',
+    :port                 => 587,
+    #:domain               => 'baci.lindsaar.net',
+    :user_name            => 'user_name',
+    :password             => 'password',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true  }
+
+  # Mailcatcher
+  #config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.smtp_settings = { address: "localhost", port: 1025 }
 
 end
 

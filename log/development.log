@@ -2840,3 +2840,1214 @@ Processing by StaticPagesController#about as HTML
   Rendered layouts/_header.html.erb (1.7ms)
   Rendered layouts/_footer.html.erb (0.8ms)
 Completed 200 OK in 2495ms (Views: 2494.5ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2020-09-23 15:15:04 +0200
+
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  config/initializers/quiet_assets.rb:7:in `call_with_quiet_assets'
+
+
+  Rendered /home/sandro/.rbenv/versions/1.9.3-p551/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.6ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2020-09-23 15:15:16 +0200
+Processing by UsersController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "button"=>""}
+  Rendered shared/_error_messages.html.erb (0.4ms)
+  Rendered users/new.html.erb within layouts/application (77.1ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 322ms (Views: 310.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2020-09-23 15:15:38 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "user"=>{"first_name"=>"Sandro", "middle_name"=>"", "last_name"=>"Räss", "email"=>"s.raess@me.com", "affiliation"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[36mUser Load (67.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1[0m
+  [1m[35m (24.0ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1[0m
+  [1m[35mSQL (32.7ms)[0m  INSERT INTO `users` (`affiliation`, `area_editor`, `author`, `created_at`, `editor_area_id`, `email`, `first_name`, `gender`, `last_name`, `managing_editor`, `middle_name`, `password_digest`, `password_reset_sent_at`, `password_reset_token`, `referee`, `remember_token`, `updated_at`) VALUES ('', 0, 1, '2020-09-23 13:15:39', NULL, 's.raess@me.com', 'Sandro', NULL, 'Räss', 0, '', '$2a$10$VIY9vuqX4m6pxFAUSW2R0OAK85PoAJZV/FcEBmbnzLD5T3MqTDsCO', NULL, NULL, 1, 'Gzq7LTcRP5t_HK8erEgBpw', '2020-09-23 13:15:39')
+  [1m[36mTrigram Load (0.8ms)[0m  [1mSELECT `trigrams`.* FROM `trigrams` WHERE `trigrams`.`owner_id` = 1 AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email'[0m
+  [1m[35mUser Load (25.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTrigram Exists (24.4ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY '**s' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (12.0ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, '**s')
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.3ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY '*sa' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, '*sa')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTrigram Exists (10.7ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'san' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 'san')
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.2ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'and' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 'and')[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTrigram Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'ndr' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 'ndr')
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.3ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'dro' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 'dro')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTrigram Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'ro*' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 'ro*')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.3ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'o*r' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 'o*r')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTrigram Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY '*ra' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, '*ra')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.2ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'ras' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 'ras')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTrigram Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'ass' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 'ass')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.3ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'ss*' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 'ss*')[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTrigram Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 's*s' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 's*s')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.3ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY '*s*' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, '*s*')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTrigram Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 's*r' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 's*r')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.3ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'rae' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 'rae')[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTrigram Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'aes' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 'aes')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.2ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'ess' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 'ess')[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTrigram Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 's*m' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 's*m')
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.4ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY '*me' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, '*me')[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTrigram Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'me*' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 'me*')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.2ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'e*c' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 'e*c')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTrigram Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY '*co' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, '*co')
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.4ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'com' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 'com')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTrigram Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'om*' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 'om*')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.4ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'm**' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 1 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 1, 'User', 28, 'm**')[0m
+  [1m[35m (35.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/signin
+Completed 302 Found in 796ms (ActiveRecord: 251.8ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:15:39 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 276ms (Views: 275.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2020-09-23 15:15:58 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "session"=>{"email"=>"s.raess@me.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 71ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2020-09-23 15:15:58 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:15:58 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 208ms (Views: 208.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2020-09-23 15:16:33 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "session"=>{"email"=>"s.raess@me.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 73ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2020-09-23 15:16:33 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:16:33 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 213ms (Views: 213.0ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/sessions" for 127.0.0.1 at 2020-09-23 15:19:22 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "session"=>{"email"=>"s.raess@me.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 71ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2020-09-23 15:19:22 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:19:22 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 192ms (Views: 192.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2020-09-23 15:20:53 +0200
+Processing by StaticPagesController#about as HTML
+  Rendered static_pages/about.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 220ms (Views: 219.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2020-09-23 15:20:56 +0200
+Processing by StaticPagesController#about as HTML
+  Rendered static_pages/about.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 199ms (Views: 198.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2020-09-23 15:20:59 +0200
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/new.html.erb within layouts/application (12.9ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 218ms (Views: 217.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signin" for 127.0.0.1 at 2020-09-23 15:21:03 +0200
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "button"=>""}
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 210ms (Views: 209.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2020-09-23 15:21:12 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "session"=>{"email"=>"s.raess@me.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 75ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2020-09-23 15:21:12 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:21:12 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 242ms (Views: 241.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/statistics" for 127.0.0.1 at 2020-09-23 15:21:16 +0200
+Processing by StatisticsController#index as HTML
+Redirected to http://localhost:3000/statistics/last_12_months
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/statistics/last_12_months" for 127.0.0.1 at 2020-09-23 15:21:16 +0200
+Processing by StatisticsController#show as HTML
+  Parameters: {"id"=>"last_12_months"}
+  [1m[36m (77.2ms)[0m  [1mSELECT COUNT(*) FROM `submissions` WHERE `submissions`.`decision_approved` = 1 AND (submissions.revision_number = 0) AND (submissions.created_at >= '2019-09-23 13:21:17' AND submissions.created_at < '2020-09-23 13:21:17')[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `submissions` WHERE `submissions`.`withdrawn` = 1 AND (submissions.created_at >= '2019-09-23 13:21:17' AND submissions.created_at < '2020-09-23 13:21:17')
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `submissions` WHERE `submissions`.`decision_approved` = 1 AND `submissions`.`decision` = 'Reject' AND (submissions.revision_number = 0) AND (submissions.created_at >= '2019-09-23 13:21:17' AND submissions.created_at < '2020-09-23 13:21:17')[0m
+  [1m[35m (77.7ms)[0m  SELECT COUNT(*) FROM `submissions` WHERE `submissions`.`decision_approved` = 1 AND `submissions`.`decision` = 'Reject' AND (submissions.revision_number = 0) AND (submissions.created_at >= '2019-09-23 13:21:17' AND submissions.created_at < '2020-09-23 13:21:17') AND (EXISTS (SELECT 1 FROM referee_assignments AS r WHERE submissions.id = r.submission_id AND r.report_completed = 1))
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `submissions` WHERE `submissions`.`decision_approved` = 1 AND `submissions`.`decision` = 'Major Revisions' AND (submissions.revision_number = 0) AND (submissions.created_at >= '2019-09-23 13:21:17' AND submissions.created_at < '2020-09-23 13:21:17')[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `submissions` WHERE `submissions`.`decision_approved` = 1 AND `submissions`.`decision` = 'Minor Revisions' AND (submissions.revision_number = 0) AND (submissions.created_at >= '2019-09-23 13:21:17' AND submissions.created_at < '2020-09-23 13:21:17')
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `submissions` WHERE `submissions`.`decision_approved` = 1 AND `submissions`.`decision` = 'Accept' AND (submissions.revision_number = 0) AND (submissions.created_at >= '2019-09-23 13:21:17' AND submissions.created_at < '2020-09-23 13:21:17')[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `submissions` LEFT OUTER JOIN submissions originals ON submissions.original_id = originals.id WHERE `submissions`.`decision_approved` = 1 AND `submissions`.`decision` = 'Reject' AND (submissions.revision_number > 0) AND (originals.created_at >= '2019-09-23 13:21:17' AND originals.created_at < '2020-09-23 13:21:17')
+  [1m[36m (22.0ms)[0m  [1mSELECT COUNT(*) FROM `submissions` LEFT OUTER JOIN submissions originals ON submissions.original_id = originals.id WHERE `submissions`.`decision_approved` = 1 AND `submissions`.`decision` = 'Accept' AND (submissions.revision_number > 0) AND (originals.created_at >= '2019-09-23 13:21:17' AND originals.created_at < '2020-09-23 13:21:17')[0m
+  [1m[35mArea Load (0.3ms)[0m  SELECT `areas`.* FROM `areas` WHERE `areas`.`removed` = 0
+  [1m[36mSubmission Load (0.3ms)[0m  [1mSELECT submissions.decision_entered_at, submissions.created_at FROM `submissions` WHERE `submissions`.`decision_approved` = 1 AND (submissions.created_at >= '2019-09-23 13:21:17' AND submissions.created_at < '2020-09-23 13:21:17')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT submissions.decision_entered_at, submissions.created_at FROM `submissions` WHERE `submissions`.`decision_approved` = 1 AND (submissions.created_at >= '2019-09-23 13:21:17' AND submissions.created_at < '2020-09-23 13:21:17')
+  [1m[36mSubmission Load (0.3ms)[0m  [1mSELECT submissions.id, submissions.decision_entered_at, submissions.created_at FROM `submissions` WHERE `submissions`.`decision_approved` = 1 AND (submissions.revision_number = 0) AND (submissions.created_at >= '2019-09-23 13:21:17' AND submissions.created_at < '2020-09-23 13:21:17') AND (NOT EXISTS (SELECT 1 FROM referee_assignments AS r WHERE submissions.id = r.submission_id AND r.report_completed = 1))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT submissions.id, submissions.decision_entered_at, submissions.created_at FROM `submissions` WHERE `submissions`.`decision_approved` = 1 AND (submissions.revision_number = 0) AND (submissions.created_at >= '2019-09-23 13:21:17' AND submissions.created_at < '2020-09-23 13:21:17') AND (NOT EXISTS (SELECT 1 FROM referee_assignments AS r WHERE submissions.id = r.submission_id AND r.report_completed = 1))
+  [1m[36mSubmission Load (0.3ms)[0m  [1mSELECT submissions.decision_entered_at, submissions.created_at FROM `submissions` WHERE `submissions`.`decision_approved` = 1 AND (submissions.revision_number = 0) AND (submissions.created_at >= '2019-09-23 13:21:17' AND submissions.created_at < '2020-09-23 13:21:17') AND (EXISTS (SELECT 1 FROM referee_assignments AS r WHERE submissions.id = r.submission_id AND r.report_completed = 1))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT submissions.decision_entered_at, submissions.created_at FROM `submissions` WHERE `submissions`.`decision_approved` = 1 AND (submissions.revision_number = 0) AND (submissions.created_at >= '2019-09-23 13:21:17' AND submissions.created_at < '2020-09-23 13:21:17') AND (EXISTS (SELECT 1 FROM referee_assignments AS r WHERE submissions.id = r.submission_id AND r.report_completed = 1))
+  [1m[36mSubmission Load (0.3ms)[0m  [1mSELECT submissions.decision_entered_at, submissions.created_at FROM `submissions` LEFT OUTER JOIN submissions originals ON submissions.original_id = originals.id WHERE `submissions`.`decision_approved` = 1 AND (submissions.revision_number > 0) AND (originals.created_at >= '2019-09-23 13:21:17' AND originals.created_at < '2020-09-23 13:21:17')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT submissions.decision_entered_at, submissions.created_at FROM `submissions` LEFT OUTER JOIN submissions originals ON submissions.original_id = originals.id WHERE `submissions`.`decision_approved` = 1 AND (submissions.revision_number > 0) AND (originals.created_at >= '2019-09-23 13:21:17' AND originals.created_at < '2020-09-23 13:21:17')
+  [1m[36m (43.3ms)[0m  [1mSELECT DISTINCT COUNT(DISTINCT `submissions`.`id`) FROM `submissions` INNER JOIN `users` ON `users`.`id` = `submissions`.`user_id` WHERE `submissions`.`decision_approved` = 1 AND (submissions.created_at >= '2019-09-23 13:21:17' AND submissions.created_at < '2020-09-23 13:21:17') AND (submissions.revision_number = 0) AND (users.gender = 'Male')[0m
+  [1m[35m (0.3ms)[0m  SELECT DISTINCT COUNT(DISTINCT `submissions`.`id`) FROM `submissions` INNER JOIN `users` ON `users`.`id` = `submissions`.`user_id` WHERE `submissions`.`decision_approved` = 1 AND (submissions.created_at >= '2019-09-23 13:21:17' AND submissions.created_at < '2020-09-23 13:21:17') AND (submissions.revision_number = 0) AND (users.gender = 'Female')
+  [1m[36m (0.3ms)[0m  [1mSELECT DISTINCT COUNT(DISTINCT `submissions`.`id`) FROM `submissions` INNER JOIN `users` ON `users`.`id` = `submissions`.`user_id` WHERE `submissions`.`decision_approved` = 1 AND (submissions.created_at >= '2019-09-23 13:21:17' AND submissions.created_at < '2020-09-23 13:21:17') AND (submissions.revision_number = 0) AND (users.gender IS NULL)[0m
+  Rendered statistics/show.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1004ms (Views: 269.6ms | ActiveRecord: 226.6ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2020-09-23 15:21:20 +0200
+Processing by StaticPagesController#about as HTML
+  Rendered static_pages/about.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 252ms (Views: 251.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/peer_review" for 127.0.0.1 at 2020-09-23 15:21:22 +0200
+Processing by StaticPagesController#peer_review as HTML
+  Rendered static_pages/peer_review.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 477ms (Views: 476.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2020-09-23 15:21:30 +0200
+Processing by StaticPagesController#contact as HTML
+  [1m[35mJournalSettings Load (0.2ms)[0m  SELECT `journal_settings`.* FROM `journal_settings` LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `journal_settings` (`created_at`, `days_after_reports_completed_to_submit_decision`, `days_before_deadline_to_remind_referee`, `days_for_external_review`, `days_for_initial_review`, `days_to_assign_area_editor`, `days_to_extend_missed_report_deadlines`, `days_to_remind_area_editor`, `days_to_remind_overdue_decision_approval`, `days_to_remind_overdue_referee`, `days_to_remind_unanswered_invitation`, `days_to_respond_to_referee_request`, `days_to_wait_after_invitation_reminder`, `journal_email`, `number_of_reports_expected`, `updated_at`) VALUES ('2020-09-23 13:21:30', 5, 7, 28, 14, 2, 7, 3, 1, 1, 1, 3, 1, 'ergo.editors@gmail.com', 2, '2020-09-23 13:21:30')
+  [1m[36m (136.6ms)[0m  [1mCOMMIT[0m
+  Rendered static_pages/contact.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 464ms (Views: 256.6ms | ActiveRecord: 150.4ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2020-09-23 15:21:33 +0200
+Processing by StaticPagesController#about as HTML
+  Rendered static_pages/about.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 237ms (Views: 237.0ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/signup" for 127.0.0.1 at 2020-09-23 15:34:15 +0200
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (0.3ms)
+  Rendered users/new.html.erb within layouts/application (44.2ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 712ms (Views: 701.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2020-09-23 15:34:31 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "user"=>{"first_name"=>"Sandro", "middle_name"=>"", "last_name"=>"Räss", "email"=>"s.raess@me.com", "affiliation"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1[0m
+  [1m[35mUser Exists (20.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`password_reset_token` = 'LKoi3AmcA9kCs_gH_4j6uQ' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = 's.raess@me.com' AND `users`.`id` != 1) LIMIT 1
+  [1m[36m (57.1ms)[0m  [1mUPDATE `users` SET `password_reset_token` = 'LKoi3AmcA9kCs_gH_4j6uQ', `password_reset_sent_at` = '2020-09-23 13:34:31', `remember_token` = 'LQPZZwqvKbTCGoVGZNPgdw', `updated_at` = '2020-09-23 13:34:31' WHERE `users`.`id` = 1[0m
+  [1m[35m (102.4ms)[0m  COMMIT
+  [1m[36mJournalSettings Load (0.2ms)[0m  [1mSELECT `journal_settings`.* FROM `journal_settings` LIMIT 1[0m
+  Rendered notification_mailer/_email_footer.text.erb (0.5ms)
+  Rendered notification_mailer/notify_password_reset.text.erb (127.7ms)
+Redirected to http://localhost:3000/signin
+Completed 302 Found in 2317ms (ActiveRecord: 181.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2020-09-23 15:34:34 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "user"=>{"first_name"=>"Sandro", "middle_name"=>"", "last_name"=>"Räss", "email"=>"s.raess@me.com", "affiliation"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`password_reset_token` = 'y0IAxsBs6gOK7d3JlHcZ9Q' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = 's.raess@me.com' AND `users`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  UPDATE `users` SET `password_reset_token` = 'y0IAxsBs6gOK7d3JlHcZ9Q', `password_reset_sent_at` = '2020-09-23 13:34:34', `remember_token` = '0NQID_YLhnNCfOlV2skHig', `updated_at` = '2020-09-23 13:34:34' WHERE `users`.`id` = 1
+  [1m[36m (1117.3ms)[0m  [1mCOMMIT[0m
+  Rendered notification_mailer/_email_footer.text.erb (0.1ms)
+  Rendered notification_mailer/notify_password_reset.text.erb (1.0ms)
+Redirected to http://localhost:3000/signin
+Completed 302 Found in 1180ms (ActiveRecord: 1118.3ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:34:35 +0200
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO `sent_emails` (`action`, `attachments`, `body`, `cc`, `created_at`, `referee_assignment_id`, `subject`, `submission_id`, `to`, `updated_at`) VALUES ('notify_password_reset', '', 'Dear Sandro Räss,\n\nTo reset your password, follow this URL:\n\n http://localhost:3000/password_resets/LKoi3AmcA9kCs_gH_4j6uQ/edit\n\nIf you didn\'t ask to reset your password, ignore this email and your password will stay the same.\n\n----\nErgo, an Open Access Journal of Philosophy\nhttp://localhost:3000/\n\n', '', '2020-09-23 13:34:35', NULL, 'Password Reset', NULL, 's.raess@me.com', '2020-09-23 13:34:35')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `sent_emails` (`action`, `attachments`, `body`, `cc`, `created_at`, `referee_assignment_id`, `subject`, `submission_id`, `to`, `updated_at`) VALUES ('notify_password_reset', '', 'Dear Sandro Räss,\n\nTo reset your password, follow this URL:\n\n http://localhost:3000/password_resets/y0IAxsBs6gOK7d3JlHcZ9Q/edit\n\nIf you didn\'t ask to reset your password, ignore this email and your password will stay the same.\n\n----\nErgo, an Open Access Journal of Philosophy\nhttp://localhost:3000/\n\n', '', '2020-09-23 13:34:35', NULL, 'Password Reset', NULL, 's.raess@me.com', '2020-09-23 13:34:35')[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+  [1m[35m (251.8ms)[0m  COMMIT
+  [1m[36m (254.6ms)[0m  [1mCOMMIT[0m
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 295ms (Views: 294.5ms | ActiveRecord: 0.0ms)
+
+Sent mail to s.raess@me.com (117ms)
+Date: Wed, 23 Sep 2020 15:34:35 +0200
+From: Ergo Editors <ergo.editors@gmail.com>
+To: Sandro =?UTF-8?B?UsOkc3M=?= <s.raess@me.com>
+Message-ID: <5f6b4eebb52c6_6e472b07c2f6ee34537aa@sandro-pc.mail>
+Subject: Password Reset
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Dear Sandro R=C3=A4ss,
+
+To reset your password, follow this URL:
+
+    http://localhost:3000/password_resets/LKoi3AmcA9kCs_gH_4j6uQ/edit
+
+If you didn't ask to reset your password, ignore this email and your pass=
+word will stay the same.
+
+----
+Ergo, an Open Access Journal of Philosophy
+http://localhost:3000/
+
+
+
+Sent mail to s.raess@me.com (120ms)
+Date: Wed, 23 Sep 2020 15:34:35 +0200
+From: Ergo Editors <ergo.editors@gmail.com>
+To: Sandro =?UTF-8?B?UsOkc3M=?= <s.raess@me.com>
+Message-ID: <5f6b4eebb4591_6e472b07c31dc964536f@sandro-pc.mail>
+Subject: Password Reset
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Dear Sandro R=C3=A4ss,
+
+To reset your password, follow this URL:
+
+    http://localhost:3000/password_resets/y0IAxsBs6gOK7d3JlHcZ9Q/edit
+
+If you didn't ask to reset your password, ignore this email and your pass=
+word will stay the same.
+
+----
+Ergo, an Open Access Journal of Philosophy
+http://localhost:3000/
+
+
+
+
+Started GET "/password_resets/y0IAxsBs6gOK7d3JlHcZ9Q/edit" for 127.0.0.1 at 2020-09-23 15:35:29 +0200
+Processing by PasswordResetsController#edit as HTML
+  Parameters: {"id"=>"y0IAxsBs6gOK7d3JlHcZ9Q"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`password_reset_token` = 'y0IAxsBs6gOK7d3JlHcZ9Q' LIMIT 1
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered password_resets/edit.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 223ms (Views: 221.2ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/password_resets/y0IAxsBs6gOK7d3JlHcZ9Q" for 127.0.0.1 at 2020-09-23 15:35:35 +0200
+Processing by PasswordResetsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Change", "id"=>"y0IAxsBs6gOK7d3JlHcZ9Q"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`password_reset_token` = 'y0IAxsBs6gOK7d3JlHcZ9Q' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = 's.raess@me.com' AND `users`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  UPDATE `users` SET `password_digest` = '$2a$10$N9y0uXjrv5yCaYfvQgwKyuwmtwifxTEfV0lLUKMy1.dIwsVrfuoj.', `remember_token` = 'JtdOMN7vpkHGONj6QKuKRw', `updated_at` = '2020-09-23 13:35:35' WHERE `users`.`id` = 1
+  [1m[36m (69.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`password_reset_token` = 'bmLhdjm1eHvEK7-EyeT1Bg' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = 's.raess@me.com' AND `users`.`id` != 1) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mUPDATE `users` SET `password_reset_token` = 'bmLhdjm1eHvEK7-EyeT1Bg', `remember_token` = '0MjCtW0eFwTceKUu4sUCKA', `updated_at` = '2020-09-23 13:35:36' WHERE `users`.`id` = 1[0m
+  [1m[35m (62.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/signin
+Completed 302 Found in 215ms (ActiveRecord: 133.7ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:35:36 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 229ms (Views: 229.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2020-09-23 15:35:38 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "session"=>{"email"=>"s.raess@me.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 72ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2020-09-23 15:35:38 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:35:38 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 215ms (Views: 215.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2020-09-23 15:35:54 +0200
+Processing by UsersController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "button"=>""}
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/new.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 230ms (Views: 229.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2020-09-23 15:36:14 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "user"=>{"first_name"=>"Sandro", "middle_name"=>"", "last_name"=>"Ross", "email"=>"sandro.raess@philosophie.ch", "affiliation"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'sandro.raess@philosophie.ch' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = 'sandro.raess@philosophie.ch' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`affiliation`, `area_editor`, `author`, `created_at`, `editor_area_id`, `email`, `first_name`, `gender`, `last_name`, `managing_editor`, `middle_name`, `password_digest`, `password_reset_sent_at`, `password_reset_token`, `referee`, `remember_token`, `updated_at`) VALUES ('', 0, 1, '2020-09-23 13:36:14', NULL, 'sandro.raess@philosophie.ch', 'Sandro', NULL, 'Ross', 0, '', '$2a$10$CoC0.tMS5RduRl8pTc8pluhslD.Y.yiPBusU35VLgOsxoybWvf0Uy', NULL, NULL, 1, 'G6qDNVT8BV_sCSDUioQ52g', '2020-09-23 13:36:14')[0m
+  [1m[35mTrigram Load (0.3ms)[0m  SELECT `trigrams`.* FROM `trigrams` WHERE `trigrams`.`owner_id` = 2 AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email'
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTrigram Exists (33.9ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY '**s' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (22.6ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, '**s')[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mTrigram Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY '*sa' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, '*sa')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.2ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'san' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'san')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mTrigram Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'and' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'and')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.3ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'ndr' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'ndr')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mTrigram Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'dro' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'dro')
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.2ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'ro*' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'ro*')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mTrigram Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'o*r' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'o*r')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.3ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY '*ro' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, '*ro')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mTrigram Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'ros' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'ros')
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.3ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'oss' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'oss')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mTrigram Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'ss*' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'ss*')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.2ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 's*s' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 's*s')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mTrigram Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY '*ra' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, '*ra')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.2ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'rae' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'rae')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mTrigram Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'aes' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'aes')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.2ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'ess' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'ess')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mTrigram Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 's*p' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 's*p')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.2ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY '*ph' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, '*ph')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mTrigram Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'phi' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'phi')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.2ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'hil' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'hil')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mTrigram Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'ilo' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'ilo')
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.3ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'los' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'los')[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mTrigram Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'oso' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'oso')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.3ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'sop' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'sop')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mTrigram Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'oph' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'oph')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.2ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'hie' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'hie')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mTrigram Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'ie*' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'ie*')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.2ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'e*c' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'e*c')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mTrigram Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY '*ch' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, '*ch')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTrigram Exists (0.2ms)[0m  SELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'ch*' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'ch*')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mTrigram Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `trigrams` WHERE (`trigrams`.`trigram` = BINARY 'h**' AND `trigrams`.`owner_type` = 'User' AND `trigrams`.`owner_id` = 2 AND `trigrams`.`fuzzy_field` = 'full_name_affiliation_email') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `trigrams` (`fuzzy_field`, `owner_id`, `owner_type`, `score`, `trigram`) VALUES ('full_name_affiliation_email', 2, 'User', 41, 'h**')
+  [1m[36m (26.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/signin
+Completed 302 Found in 479ms (ActiveRecord: 111.2ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:36:14 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 215ms (Views: 214.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2020-09-23 15:36:41 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "session"=>{"email"=>"sandro.raess@philosophie.ch", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'sandro.raess@philosophie.ch' LIMIT 1
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 75ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2020-09-23 15:36:41 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:36:41 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 210ms (Views: 209.3ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2020-09-23 15:46:29 +0200
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'G6qDNVT8BV_sCSDUioQ52g' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'G6qDNVT8BV_sCSDUioQ52g' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'G6qDNVT8BV_sCSDUioQ52g' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'G6qDNVT8BV_sCSDUioQ52g' LIMIT 1
+  [1m[36mRefereeAssignment Load (0.2ms)[0m  [1mSELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'G6qDNVT8BV_sCSDUioQ52g' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'G6qDNVT8BV_sCSDUioQ52g' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 2
+Processing by AuthorCenterController#index as HTML
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:46:30 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (43.7ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 380ms (Views: 379.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2020-09-23 15:46:33 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "session"=>{"email"=>"s.raess@me.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 69ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-09-23 15:46:33 +0200
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '0MjCtW0eFwTceKUu4sUCKA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '0MjCtW0eFwTceKUu4sUCKA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '0MjCtW0eFwTceKUu4sUCKA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '0MjCtW0eFwTceKUu4sUCKA' LIMIT 1[0m
+  [1m[35mRefereeAssignment Load (0.2ms)[0m  SELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '0MjCtW0eFwTceKUu4sUCKA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '0MjCtW0eFwTceKUu4sUCKA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 1[0m
+Processing by AuthorCenterController#index as HTML
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:46:33 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 181ms (Views: 180.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2020-09-23 15:46:42 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "session"=>{"email"=>"s.raess@me.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 69ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-09-23 15:46:42 +0200
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '0MjCtW0eFwTceKUu4sUCKA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '0MjCtW0eFwTceKUu4sUCKA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '0MjCtW0eFwTceKUu4sUCKA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '0MjCtW0eFwTceKUu4sUCKA' LIMIT 1
+  [1m[36mRefereeAssignment Load (0.4ms)[0m  [1mSELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '0MjCtW0eFwTceKUu4sUCKA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '0MjCtW0eFwTceKUu4sUCKA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 1
+Processing by AuthorCenterController#index as HTML
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:46:42 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 184ms (Views: 184.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2020-09-23 15:46:49 +0200
+Processing by UsersController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "button"=>""}
+  Rendered shared/_error_messages.html.erb (0.4ms)
+  Rendered users/new.html.erb within layouts/application (44.9ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 381ms (Views: 380.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2020-09-23 15:47:12 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "user"=>{"first_name"=>"Sandro", "middle_name"=>"", "last_name"=>"Räss", "email"=>"sandro.raess@philosophie.ch", "affiliation"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'sandro.raess@philosophie.ch' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`password_reset_token` = 'hjbYZla3Z5FfaFDZRyGVQg' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = 'sandro.raess@philosophie.ch' AND `users`.`id` != 2) LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `password_reset_token` = 'hjbYZla3Z5FfaFDZRyGVQg', `password_reset_sent_at` = '2020-09-23 13:47:12', `remember_token` = 'VLX9UlS7Fpw3Gwp4oOsjhw', `updated_at` = '2020-09-23 13:47:12' WHERE `users`.`id` = 2[0m
+  [1m[35m (52.0ms)[0m  COMMIT
+  [1m[36mJournalSettings Load (0.2ms)[0m  [1mSELECT `journal_settings`.* FROM `journal_settings` LIMIT 1[0m
+  Rendered notification_mailer/_email_footer.text.erb (0.3ms)
+  Rendered notification_mailer/notify_password_reset.text.erb (1.3ms)
+Redirected to http://localhost:3000/signin
+Completed 302 Found in 790ms (ActiveRecord: 54.7ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:47:12 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `sent_emails` (`action`, `attachments`, `body`, `cc`, `created_at`, `referee_assignment_id`, `subject`, `submission_id`, `to`, `updated_at`) VALUES ('notify_password_reset', '', 'Dear Sandro Ross,\n\nTo reset your password, follow this URL:\n\n http://localhost:3000/password_resets/hjbYZla3Z5FfaFDZRyGVQg/edit\n\nIf you didn\'t ask to reset your password, ignore this email and your password will stay the same.\n\n----\nErgo, an Open Access Journal of Philosophy\nhttp://localhost:3000/\n\n', '', '2020-09-23 13:47:12', NULL, 'Password Reset', NULL, 'sandro.raess@philosophie.ch', '2020-09-23 13:47:12')[0m
+  [1m[35m (119.4ms)[0m  COMMIT
+
+Sent mail to sandro.raess@philosophie.ch (12ms)
+Date: Wed, 23 Sep 2020 15:47:13 +0200
+From: Ergo Editors <ergo.editors@gmail.com>
+To: Sandro Ross <sandro.raess@philosophie.ch>
+Message-ID: <5f6b51e11205a_70a02af7987dc5d4133f5@sandro-pc.mail>
+Subject: Password Reset
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear Sandro Ross,
+
+To reset your password, follow this URL:
+
+    http://localhost:3000/password_resets/hjbYZla3Z5FfaFDZRyGVQg/edit
+
+If you didn't ask to reset your password, ignore this email and your password will stay the same.
+
+----
+Ergo, an Open Access Journal of Philosophy
+http://localhost:3000/
+
+
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 282ms (Views: 281.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/password_resets/hjbYZla3Z5FfaFDZRyGVQg/edit" for 127.0.0.1 at 2020-09-23 15:48:50 +0200
+Processing by PasswordResetsController#edit as HTML
+  Parameters: {"id"=>"hjbYZla3Z5FfaFDZRyGVQg"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`password_reset_token` = 'hjbYZla3Z5FfaFDZRyGVQg' LIMIT 1[0m
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered password_resets/edit.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 272ms (Views: 243.1ms | ActiveRecord: 24.6ms)
+
+
+Started PUT "/password_resets/hjbYZla3Z5FfaFDZRyGVQg" for 127.0.0.1 at 2020-09-23 15:49:01 +0200
+Processing by PasswordResetsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Change", "id"=>"hjbYZla3Z5FfaFDZRyGVQg"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`password_reset_token` = 'hjbYZla3Z5FfaFDZRyGVQg' LIMIT 1
+  [1m[36m (16.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = 'sandro.raess@philosophie.ch' AND `users`.`id` != 2) LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mUPDATE `users` SET `password_digest` = '$2a$10$d4Kry.J549UPL.EDezmHgupPusX1YeSaaKIc7WKfMSUHFwGwm.zPe', `remember_token` = 'HZOPcmOmpoRRhjrTnUfr8A', `updated_at` = '2020-09-23 13:49:01' WHERE `users`.`id` = 2[0m
+  [1m[35m (136.5ms)[0m  COMMIT
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`password_reset_token` = 'go8oxbPEKg3Yprd69WeLfQ' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = 'sandro.raess@philosophie.ch' AND `users`.`id` != 2) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  UPDATE `users` SET `password_reset_token` = 'go8oxbPEKg3Yprd69WeLfQ', `remember_token` = 'hNUYikDLewxh_ojel1FIYA', `updated_at` = '2020-09-23 13:49:01' WHERE `users`.`id` = 2
+  [1m[36m (58.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/signin
+Completed 302 Found in 300ms (ActiveRecord: 213.5ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:49:01 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 200ms (Views: 199.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2020-09-23 15:49:07 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "session"=>{"email"=>"s.raess@me.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 69ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-09-23 15:49:07 +0200
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '0MjCtW0eFwTceKUu4sUCKA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '0MjCtW0eFwTceKUu4sUCKA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '0MjCtW0eFwTceKUu4sUCKA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '0MjCtW0eFwTceKUu4sUCKA' LIMIT 1
+  [1m[36mRefereeAssignment Load (0.3ms)[0m  [1mSELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '0MjCtW0eFwTceKUu4sUCKA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '0MjCtW0eFwTceKUu4sUCKA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 1
+Processing by AuthorCenterController#index as HTML
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:49:07 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 209ms (Views: 208.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-09-23 15:50:19 +0200
+Processing by StaticPagesController#about as HTML
+  Rendered static_pages/about.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 225ms (Views: 224.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2020-09-23 15:50:32 +0200
+Processing by UsersController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"corkOztCIST7eqrliLTkJsm6wvZgAkgVjE+4n9CpUr0=", "button"=>""}
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/new.html.erb within layouts/application (27.9ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 227ms (Views: 226.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2020-09-23 15:51:22 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"corkOztCIST7eqrliLTkJsm6wvZgAkgVjE+4n9CpUr0=", "user"=>{"first_name"=>"Sandro", "middle_name"=>"", "last_name"=>"Ross", "email"=>"s.raess@me.com", "affiliation"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[36mUser Load (105.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`password_reset_token` = '1RSPB4uPhTT7HeDUto2WTQ' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = 's.raess@me.com' AND `users`.`id` != 1) LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `password_reset_token` = '1RSPB4uPhTT7HeDUto2WTQ', `password_reset_sent_at` = '2020-09-23 13:51:22', `remember_token` = 'tea3xlw3cKG_hM2pSF0Ffw', `updated_at` = '2020-09-23 13:51:22' WHERE `users`.`id` = 1[0m
+  [1m[35m (132.9ms)[0m  COMMIT
+  Rendered notification_mailer/_email_footer.text.erb (0.1ms)
+  Rendered notification_mailer/notify_password_reset.text.erb (25.9ms)
+Redirected to http://localhost:3000/signin
+Completed 302 Found in 473ms (ActiveRecord: 239.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2020-09-23 15:51:23 +0200
+  [1m[36m (3.6ms)[0m  [1mBEGIN[0m
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"corkOztCIST7eqrliLTkJsm6wvZgAkgVjE+4n9CpUr0=", "user"=>{"first_name"=>"Sandro", "middle_name"=>"", "last_name"=>"Ross", "email"=>"s.raess@me.com", "affiliation"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`password_reset_token` = 'XPeHhYRDZieK_kbLJ4Ah8Q' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = 's.raess@me.com' AND `users`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  UPDATE `users` SET `password_reset_token` = 'XPeHhYRDZieK_kbLJ4Ah8Q', `password_reset_sent_at` = '2020-09-23 13:51:23', `remember_token` = '1lGRg1jRgieS07dlQ4OXDQ', `updated_at` = '2020-09-23 13:51:23' WHERE `users`.`id` = 1
+  [1m[36m (129.8ms)[0m  [1mCOMMIT[0m
+  Rendered notification_mailer/_email_footer.text.erb (0.1ms)
+  Rendered notification_mailer/notify_password_reset.text.erb (0.9ms)
+Redirected to http://localhost:3000/signin
+Completed 302 Found in 154ms (ActiveRecord: 131.1ms)
+  [1m[35mSQL (258.2ms)[0m  INSERT INTO `sent_emails` (`action`, `attachments`, `body`, `cc`, `created_at`, `referee_assignment_id`, `subject`, `submission_id`, `to`, `updated_at`) VALUES ('notify_password_reset', '', 'Dear Sandro Räss,\n\nTo reset your password, follow this URL:\n\n http://localhost:3000/password_resets/1RSPB4uPhTT7HeDUto2WTQ/edit\n\nIf you didn\'t ask to reset your password, ignore this email and your password will stay the same.\n\n----\nErgo, an Open Access Journal of Philosophy\nhttp://localhost:3000/\n\n', '', '2020-09-23 13:51:23', NULL, 'Password Reset', NULL, 's.raess@me.com', '2020-09-23 13:51:23')
+  [1m[36m (105.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  BEGIN
+
+Sent mail to s.raess@me.com (444ms)
+Date: Wed, 23 Sep 2020 15:51:23 +0200
+From: Ergo Editors <ergo.editors@gmail.com>
+To: Sandro =?UTF-8?B?UsOkc3M=?= <s.raess@me.com>
+Message-ID: <5f6b52dbee00a_70a02af798d6eb781344b@sandro-pc.mail>
+Subject: Password Reset
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Dear Sandro R=C3=A4ss,
+
+To reset your password, follow this URL:
+
+    http://localhost:3000/password_resets/1RSPB4uPhTT7HeDUto2WTQ/edit
+
+If you didn't ask to reset your password, ignore this email and your pass=
+word will stay the same.
+
+----
+Ergo, an Open Access Journal of Philosophy
+http://localhost:3000/
+
+
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `sent_emails` (`action`, `attachments`, `body`, `cc`, `created_at`, `referee_assignment_id`, `subject`, `submission_id`, `to`, `updated_at`) VALUES ('notify_password_reset', '', 'Dear Sandro Räss,\n\nTo reset your password, follow this URL:\n\n http://localhost:3000/password_resets/XPeHhYRDZieK_kbLJ4Ah8Q/edit\n\nIf you didn\'t ask to reset your password, ignore this email and your password will stay the same.\n\n----\nErgo, an Open Access Journal of Philosophy\nhttp://localhost:3000/\n\n', '', '2020-09-23 13:51:24', NULL, 'Password Reset', NULL, 's.raess@me.com', '2020-09-23 13:51:24')[0m
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:51:24 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+  [1m[35m (272.4ms)[0m  COMMIT
+
+Sent mail to s.raess@me.com (9ms)
+Date: Wed, 23 Sep 2020 15:51:24 +0200
+From: Ergo Editors <ergo.editors@gmail.com>
+To: Sandro =?UTF-8?B?UsOkc3M=?= <s.raess@me.com>
+Message-ID: <5f6b52dc9bf6a_70a02af798ceb840135b9@sandro-pc.mail>
+Subject: Password Reset
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Dear Sandro R=C3=A4ss,
+
+To reset your password, follow this URL:
+
+    http://localhost:3000/password_resets/XPeHhYRDZieK_kbLJ4Ah8Q/edit
+
+If you didn't ask to reset your password, ignore this email and your pass=
+word will stay the same.
+
+----
+Ergo, an Open Access Journal of Philosophy
+http://localhost:3000/
+
+
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 388ms (Views: 387.4ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/sessions" for 127.0.0.1 at 2020-09-23 15:53:50 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"corkOztCIST7eqrliLTkJsm6wvZgAkgVjE+4n9CpUr0=", "session"=>{"email"=>"s.raess@me.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1[0m
+Redirected to http://localhost:3000/signin
+Completed 302 Found in 434ms (ActiveRecord: 168.9ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2020-09-23 15:55:27 +0200
+Processing by StaticPagesController#about as HTML
+  Rendered static_pages/about.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 654ms (Views: 653.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-09-23 15:55:32 +0200
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '1lGRg1jRgieS07dlQ4OXDQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '1lGRg1jRgieS07dlQ4OXDQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '1lGRg1jRgieS07dlQ4OXDQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '1lGRg1jRgieS07dlQ4OXDQ' LIMIT 1[0m
+  [1m[35mRefereeAssignment Load (0.3ms)[0m  SELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '1lGRg1jRgieS07dlQ4OXDQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '1lGRg1jRgieS07dlQ4OXDQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 1[0m
+Processing by AuthorCenterController#index as HTML
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:55:33 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (54.5ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 246ms (Views: 245.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2020-09-23 15:55:43 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"corkOztCIST7eqrliLTkJsm6wvZgAkgVjE+4n9CpUr0=", "session"=>{"email"=>"s.raess@me.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 71ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-09-23 15:55:43 +0200
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '1lGRg1jRgieS07dlQ4OXDQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '1lGRg1jRgieS07dlQ4OXDQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '1lGRg1jRgieS07dlQ4OXDQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '1lGRg1jRgieS07dlQ4OXDQ' LIMIT 1
+  [1m[36mRefereeAssignment Load (1.2ms)[0m  [1mSELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '1lGRg1jRgieS07dlQ4OXDQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = '1lGRg1jRgieS07dlQ4OXDQ' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 1
+Processing by AuthorCenterController#index as HTML
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:55:43 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 210ms (Views: 209.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2020-09-23 15:55:50 +0200
+Processing by PasswordResetsController#new as HTML
+  Rendered password_resets/new.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 320ms (Views: 319.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2020-09-23 15:55:55 +0200
+Processing by PasswordResetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"corkOztCIST7eqrliLTkJsm6wvZgAkgVjE+4n9CpUr0=", "email"=>"s.raess@me.com", "commit"=>"Email me"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`password_reset_token` = 'gybMTUwepdDpdiJFZJ0wTw' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = 's.raess@me.com' AND `users`.`id` != 1) LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `password_reset_token` = 'gybMTUwepdDpdiJFZJ0wTw', `password_reset_sent_at` = '2020-09-23 13:55:55', `remember_token` = 'YDFufSSF6fsuSbC4O2jQTA', `updated_at` = '2020-09-23 13:55:55' WHERE `users`.`id` = 1[0m
+  [1m[35m (55.8ms)[0m  COMMIT
+  [1m[36mJournalSettings Load (0.2ms)[0m  [1mSELECT `journal_settings`.* FROM `journal_settings` LIMIT 1[0m
+  Rendered notification_mailer/_email_footer.text.erb (0.4ms)
+  Rendered notification_mailer/notify_password_reset.text.erb (1.4ms)
+Redirected to http://localhost:3000/signin
+Completed 302 Found in 2918ms (ActiveRecord: 87.8ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:55:58 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 569ms (Views: 218.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO `sent_emails` (`action`, `attachments`, `body`, `cc`, `created_at`, `referee_assignment_id`, `subject`, `submission_id`, `to`, `updated_at`) VALUES ('notify_password_reset', '', 'Dear Sandro Räss,\n\nTo reset your password, follow this URL:\n\n http://localhost:3000/password_resets/gybMTUwepdDpdiJFZJ0wTw/edit\n\nIf you didn\'t ask to reset your password, ignore this email and your password will stay the same.\n\n----\nErgo, an Open Access Journal of Philosophy\nhttp://localhost:3000/\n\n', '', '2020-09-23 13:55:59', NULL, 'Password Reset', NULL, 's.raess@me.com', '2020-09-23 13:55:59')[0m
+  [1m[35m (219.3ms)[0m  COMMIT
+
+Sent mail to s.raess@me.com (1276ms)
+Date: Wed, 23 Sep 2020 15:55:59 +0200
+From: Ergo Editors <ergo.editors@gmail.com>
+To: Sandro =?UTF-8?B?UsOkc3M=?= <s.raess@me.com>
+Message-ID: <5f6b53ef84ae8_72d22abc2e5c6b783183b@sandro-pc.mail>
+Subject: Password Reset
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Dear Sandro R=C3=A4ss,
+
+To reset your password, follow this URL:
+
+    http://localhost:3000/password_resets/gybMTUwepdDpdiJFZJ0wTw/edit
+
+If you didn't ask to reset your password, ignore this email and your pass=
+word will stay the same.
+
+----
+Ergo, an Open Access Journal of Philosophy
+http://localhost:3000/
+
+
+
+
+Started GET "/password_resets/gybMTUwepdDpdiJFZJ0wTw/edit" for 127.0.0.1 at 2020-09-23 15:56:29 +0200
+Processing by PasswordResetsController#edit as HTML
+  Parameters: {"id"=>"gybMTUwepdDpdiJFZJ0wTw"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`password_reset_token` = 'gybMTUwepdDpdiJFZJ0wTw' LIMIT 1[0m
+  Rendered shared/_error_messages.html.erb (0.4ms)
+  Rendered password_resets/edit.html.erb within layouts/application (26.3ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 248ms (Views: 244.7ms | ActiveRecord: 0.8ms)
+
+
+Started PUT "/password_resets/gybMTUwepdDpdiJFZJ0wTw" for 127.0.0.1 at 2020-09-23 15:56:59 +0200
+Processing by PasswordResetsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Change", "id"=>"gybMTUwepdDpdiJFZJ0wTw"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`password_reset_token` = 'gybMTUwepdDpdiJFZJ0wTw' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = 's.raess@me.com' AND `users`.`id` != 1) LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mUPDATE `users` SET `password_digest` = '$2a$10$XsdMJMDbP2EPYP66mbsLMOi4nSuGIle8i.SkM1nbEwA./zXVYdzU6', `remember_token` = 'jmjqkwwn0JI3LZZVjm6XbQ', `updated_at` = '2020-09-23 13:56:59' WHERE `users`.`id` = 1[0m
+  [1m[35m (30.7ms)[0m  COMMIT
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`password_reset_token` = '3Bb_akImZnD7r33qLWZTxw' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = 's.raess@me.com' AND `users`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  UPDATE `users` SET `password_reset_token` = '3Bb_akImZnD7r33qLWZTxw', `remember_token` = 'vk8GlSfUBVo8JQk3pfGffw', `updated_at` = '2020-09-23 13:56:59' WHERE `users`.`id` = 1
+  [1m[36m (37.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/signin
+Completed 302 Found in 150ms (ActiveRecord: 70.2ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:56:59 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 213ms (Views: 213.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2020-09-23 15:57:03 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "session"=>{"email"=>"s.raess@me.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 303ms (Views: 209.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2020-09-23 15:57:11 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "session"=>{"email"=>"s.raess@me.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (25.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 's.raess@me.com' LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 95ms (ActiveRecord: 25.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-09-23 15:57:11 +0200
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1[0m
+  [1m[35mRefereeAssignment Load (0.2ms)[0m  SELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 1[0m
+Processing by AuthorCenterController#index as HTML
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:57:11 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 181ms (Views: 180.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-09-23 15:57:17 +0200
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1[0m
+  [1m[35mRefereeAssignment Load (0.2ms)[0m  SELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'vk8GlSfUBVo8JQk3pfGffw' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 1[0m
+Processing by AuthorCenterController#index as HTML
+Redirected to http://localhost:3000/signin
+Filter chain halted as :signed_in_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2020-09-23 15:57:17 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 182ms (Views: 182.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2020-09-23 15:57:20 +0200
+Processing by UsersController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/7kZ+loUR0rNzlM6hAo5nGTfhSULZuNj6ywyxXskcI=", "button"=>""}
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/new.html.erb within layouts/application (7.4ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 240ms (Views: 239.1ms | ActiveRecord: 0.0ms)
