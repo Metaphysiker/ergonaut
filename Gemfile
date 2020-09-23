@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'activerecord-mysql-adapter'
+#gem 'activerecord-mysql-adapter'
 gem 'rails', '3.2.13'
 gem 'mysql2'
 gem 'bcrypt-ruby', '3.0.1'
