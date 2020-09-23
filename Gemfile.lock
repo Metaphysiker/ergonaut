@@ -22,10 +22,6 @@ GEM
       activesupport (= 3.2.13)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
-    activerecord-mysql-adapter (0.0.1)
-      activerecord (>= 3.2.9)
-      activesupport (>= 3.2.9)
-      mysql (>= 2.9.0)
     activeresource (3.2.13)
       activemodel (= 3.2.13)
       activesupport (= 3.2.13)
@@ -124,7 +120,6 @@ GEM
     mime-types (1.25.1)
     mini_portile2 (2.0.0)
     multi_json (1.11.2)
-    mysql (2.9.1)
     mysql2 (0.3.20)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
@@ -230,7 +225,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-mysql-adapter
   annotate (= 2.5.0)
   bcrypt-ruby (= 3.0.1)
   better_errors
