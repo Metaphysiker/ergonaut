@@ -14,6 +14,7 @@ gem 'pg', '0.12.2'
 gem 'activerecord-mysql-adapter'
 gem 'mysql'
 
+
 gem 'turbolinks'
 gem 'jquery-turbolinks'
 
