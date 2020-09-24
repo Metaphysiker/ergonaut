@@ -1,3 +1,8 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
 development:
   adapter: mysql2
   encoding: utf8
@@ -17,11 +22,12 @@ test:
   password: blitzkrieg
 
 production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+
+production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: ergonaut
-  pool: 5
-  username: root
-  password: password
-  socket: /var/run/mysqld/mysqld.sock
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ENV['DATABASE_URL'] %>

@@ -10,7 +10,9 @@ gem 'coffee-rails', '~> 3.2.1'
 gem 'thin'
 gem 'fuzzily'
 gem 'whenever', require: false
-#gem 'pg', '>= 0.18', '< 2.0'
+gem 'pg', '0.12.2'
+gem 'activerecord-mysql-adapter'
+gem 'mysql'
 
 gem 'turbolinks'
 gem 'jquery-turbolinks'

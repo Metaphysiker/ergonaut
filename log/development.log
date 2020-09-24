@@ -4513,3 +4513,224 @@ Processing by StaticPagesController#about as HTML
   Rendered layouts/_bread_crumbs.html.erb (0.0ms)
   Rendered layouts/_footer.html.erb (0.4ms)
 Completed 200 OK in 202ms (Views: 201.2ms | ActiveRecord: 0.4ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2020-09-24 14:35:08 +0200
+  [1m[36mUser Load (251.9ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'npHgMsixbLz-g1mJiRG3Dg' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'npHgMsixbLz-g1mJiRG3Dg' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'npHgMsixbLz-g1mJiRG3Dg' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'npHgMsixbLz-g1mJiRG3Dg' LIMIT 1
+  [1m[36mRefereeAssignment Load (98.1ms)[0m  [1mSELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'npHgMsixbLz-g1mJiRG3Dg' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'npHgMsixbLz-g1mJiRG3Dg' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `referee_assignments`.* FROM `referee_assignments` WHERE `referee_assignments`.`user_id` = 3
+Processing by AuthorCenterController#index as HTML
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` = 'npHgMsixbLz-g1mJiRG3Dg' LIMIT 1[0m
+  [1m[35mSubmission Load (0.2ms)[0m  SELECT `submissions`.* FROM `submissions` WHERE `submissions`.`user_id` = 3
+  Rendered author_center/_submissions_table.html.erb (0.8ms)
+  Rendered author_center/index.html.erb within layouts/application (23.6ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_bread_crumbs.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (1.2ms)
+Completed 200 OK in 747ms (Views: 617.2ms | ActiveRecord: 108.0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (589.3ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (735.3ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (13.6ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateUsers (20130616205126)
+  [1m[35m (331.2ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `email` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (74.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130616205126')[0m
+Migrating to AddPasswordDigestToUsers (20130616211641)
+  [1m[35m (580.2ms)[0m  ALTER TABLE `users` ADD `password_digest` varchar(255)
+  [1m[36m (45.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130616211641')[0m
+Migrating to AddRememberTokenToUsers (20130616234213)
+  [1m[35m (512.9ms)[0m  ALTER TABLE `users` ADD `remember_token` varchar(255)
+  [1m[36m (263.6ms)[0m  [1mCREATE INDEX `index_users_on_remember_token` ON `users` (`remember_token`)[0m
+  [1m[35m (66.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130616234213')
+Migrating to CreateSubmissions (20130617151201)
+  [1m[36m (306.9ms)[0m  [1mCREATE TABLE `submissions` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (24.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130617151201')
+Migrating to CreateAreaEditorAssignments (20130623225927)
+  [1m[36m (982.0ms)[0m  [1mCREATE TABLE `area_editor_assignments` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `submission_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (57.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130623225927')
+Migrating to CreateRefereeAssignments (20130623225945)
+  [1m[36m (265.9ms)[0m  [1mCREATE TABLE `referee_assignments` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `submission_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (57.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130623225945')
+Migrating to AddRoleBooleansToUser (20130701234958)
+  [1m[36m (600.3ms)[0m  [1mALTER TABLE `users` ADD `managing_editor` tinyint(1)[0m
+  [1m[35m (872.2ms)[0m  ALTER TABLE `users` ADD `area_editor` tinyint(1)
+  [1m[36m (750.1ms)[0m  [1mALTER TABLE `users` ADD `author` tinyint(1)[0m
+  [1m[35m (601.7ms)[0m  ALTER TABLE `users` ADD `referee` tinyint(1)
+  [1m[36m (35.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130701234958')[0m
+Migrating to AddDecisionApprovedToSubmission (20130705150215)
+  [1m[35m (549.1ms)[0m  ALTER TABLE `submissions` ADD `decision_approved` tinyint(1)
+  [1m[36m (66.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130705150215')[0m
+Migrating to AddDecisionToSubmissions (20130707200348)
+  [1m[35m (1178.7ms)[0m  ALTER TABLE `submissions` ADD `decision` varchar(255)
+  [1m[36m (31.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130707200348')[0m
+Migrating to AddAgreeAndDeclineCommentToRefereeAssignments (20130710124252)
+  [1m[35m (517.8ms)[0m  ALTER TABLE `referee_assignments` ADD `agree` tinyint(1)
+  [1m[36m (579.3ms)[0m  [1mALTER TABLE `referee_assignments` ADD `decline_comment` text[0m
+  [1m[35m (55.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130710124252')
+Migrating to AddFirstMiddleAndLastToUser (20130819194217)
+  [1m[36m (657.4ms)[0m  [1mALTER TABLE `users` ADD `first_name` varchar(255)[0m
+  [1m[35m (641.8ms)[0m  ALTER TABLE `users` ADD `middle_name` varchar(255)
+  [1m[36m (726.0ms)[0m  [1mALTER TABLE `users` ADD `last_name` varchar(255)[0m
+  [1m[35m (50.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130819194217')
+Migrating to RemoveNameFromUser (20130819195034)
+  [1m[36m (601.4ms)[0m  [1mALTER TABLE `users` DROP `name`[0m
+  [1m[35m (57.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130819195034')
+Migrating to AddAffiliationToUsers (20130820164319)
+  [1m[36m (628.4ms)[0m  [1mALTER TABLE `users` ADD `affiliation` varchar(255)[0m
+  [1m[35m (41.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130820164319')
+Migrating to AddPasswordResetToUsers (20130821210315)
+  [1m[36m (670.9ms)[0m  [1mALTER TABLE `users` ADD `password_reset_token` varchar(255)[0m
+  [1m[35m (699.9ms)[0m  ALTER TABLE `users` ADD `password_reset_sent_at` datetime
+  [1m[36m (40.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130821210315')[0m
+Migrating to AddAuthTokenToRefereeAssignments (20130822001522)
+  [1m[35m (592.5ms)[0m  ALTER TABLE `referee_assignments` ADD `auth_token` varchar(255)
+  [1m[36m (65.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130822001522')[0m
+Migrating to AddArchivedToSubmissions (20130910224816)
+  [1m[35m (650.8ms)[0m  ALTER TABLE `submissions` ADD `archived` tinyint(1)
+  [1m[36m (75.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130910224816')[0m
+Migrating to CreateJournalSettings (20130911212423)
+  [1m[35m (442.2ms)[0m  CREATE TABLE `journal_settings` (`id` int(11) auto_increment PRIMARY KEY, `days_for_initial_review` int(11), `days_to_respond_to_referee_request` int(11), `days_to_remind_unanswered_invitation` int(11), `days_for_external_review` int(11), `days_to_remind_overdue_referee` int(11), `days_for_initial_and_external_review` int(11), `journal_email` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (57.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130911212423')[0m
+Migrating to RemoveDaysForInitialAndExternalReviewFromJournalSettings (20130911222059)
+  [1m[35m (594.5ms)[0m  ALTER TABLE `journal_settings` DROP `days_for_initial_and_external_review`
+  [1m[36m (214.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130911222059')[0m
+Migrating to AddDaysToRemindAreaEditorToJournalSettings (20130911222225)
+  [1m[35m (693.0ms)[0m  ALTER TABLE `journal_settings` ADD `days_to_remind_area_editor` int(11)
+  [1m[36m (48.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130911222225')[0m
+Migrating to AddAssignedAtAndAcceptedAtAndDeclinedAtAndDueAtToRefereeAssignments (20130912005351)
+  [1m[35m (660.3ms)[0m  ALTER TABLE `referee_assignments` ADD `assigned_at` datetime
+  [1m[36m (577.5ms)[0m  [1mALTER TABLE `referee_assignments` ADD `agreed_at` datetime[0m
+  [1m[35m (653.0ms)[0m  ALTER TABLE `referee_assignments` ADD `declined_at` datetime
+  [1m[36m (566.7ms)[0m  [1mALTER TABLE `referee_assignments` ADD `due_at` datetime[0m
+  [1m[35m (48.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130912005351')
+Migrating to AddCanceledToRefereeAssignments (20130912230212)
+  [1m[36m (529.9ms)[0m  [1mALTER TABLE `referee_assignments` ADD `canceled` tinyint(1)[0m
+  [1m[35m (38.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130912230212')
+Migrating to AddReportStuffToRefereeAssignments (20130914202839)
+  [1m[36m (634.3ms)[0m  [1mALTER TABLE `referee_assignments` ADD `recommendation_id` int(11)[0m
+  [1m[35m (611.1ms)[0m  ALTER TABLE `referee_assignments` ADD `comments_for_editor` text
+  [1m[36m (677.1ms)[0m  [1mALTER TABLE `referee_assignments` ADD `comments_for_author` text[0m
+  [1m[35m (810.7ms)[0m  ALTER TABLE `referee_assignments` ADD `report_completed` tinyint(1)
+  [1m[36m (669.5ms)[0m  [1mALTER TABLE `referee_assignments` ADD `report_completed_at` datetime[0m
+  [1m[35m (543.6ms)[0m  ALTER TABLE `referee_assignments` ADD `recommend_reject` tinyint(1)
+  [1m[36m (629.0ms)[0m  [1mALTER TABLE `referee_assignments` ADD `recommend_major_revisions` tinyint(1)[0m
+  [1m[35m (560.9ms)[0m  ALTER TABLE `referee_assignments` ADD `recommend_minor_revisions` tinyint(1)
+  [1m[36m (674.4ms)[0m  [1mALTER TABLE `referee_assignments` ADD `recommend_accept` tinyint(1)[0m
+  [1m[35m (40.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130914202839')
+Migrating to ChangeAgreeToAgreedInRefereeAssignments (20130914203416)
+  [1m[36m (0.4ms)[0m  [1mSHOW COLUMNS FROM `referee_assignments` LIKE 'agree'[0m
+  [1m[35m (132.5ms)[0m  ALTER TABLE `referee_assignments` CHANGE `agree` `agreed` tinyint(1) DEFAULT NULL
+  [1m[36m (32.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130914203416')[0m
+Migrating to AddWithdrawnToSubmissions (20130915224712)
+  [1m[35m (653.3ms)[0m  ALTER TABLE `submissions` ADD `withdrawn` tinyint(1)
+  [1m[36m (57.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130915224712')[0m
+Migrating to AddRefereeLetterToRefereeAssignment (20130917005108)
+  [1m[35m (753.6ms)[0m  ALTER TABLE `referee_assignments` ADD `referee_letter` varchar(255)
+  [1m[36m (38.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130917005108')[0m
+Migrating to AddDaysToAssignAreaEditorToJournalSettings (20130918032720)
+  [1m[35m (702.6ms)[0m  ALTER TABLE `journal_settings` ADD `days_to_assign_area_editor` int(11)
+  [1m[36m (57.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130918032720')[0m
+Migrating to AddManuscriptFileToSubmissions (20130919222657)
+  [1m[35m (576.0ms)[0m  ALTER TABLE `submissions` ADD `manuscript_file` varchar(255)
+  [1m[36m (63.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130919222657')[0m
+Migrating to AddAreaEditorCommentsToSubmissions (20130921030336)
+  [1m[35m (610.2ms)[0m  ALTER TABLE `submissions` ADD `area_editor_comments_for_managing_editors` text
+  [1m[36m (576.7ms)[0m  [1mALTER TABLE `submissions` ADD `area_editor_comments_for_author` text[0m
+  [1m[35m (32.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130921030336')
+Migrating to AddAreaIdToSubmissions (20130921221122)
+  [1m[36m (651.0ms)[0m  [1mALTER TABLE `submissions` ADD `area_id` int(11)[0m
+  [1m[35m (42.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130921221122')
+Migrating to CreateAreas (20130921221419)
+  [1m[36m (357.2ms)[0m  [1mCREATE TABLE `areas` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (78.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130921221419')
+Migrating to AddShortNameToArea (20130921230004)
+  [1m[36m (688.8ms)[0m  [1mALTER TABLE `areas` ADD `short_name` varchar(255)[0m
+  [1m[35m (32.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130921230004')
+Migrating to AddRevisionInfoToSubmissions (20130922015158)
+  [1m[36m (1043.8ms)[0m  [1mALTER TABLE `submissions` ADD `original_id` int(11)[0m
+  [1m[35m (578.1ms)[0m  ALTER TABLE `submissions` ADD `revision_number` int(11)
+  [1m[36m (64.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130922015158')[0m
+Migrating to AddAuthTokenToSubmissions (20131025211741)
+  [1m[35m (640.8ms)[0m  ALTER TABLE `submissions` ADD `auth_token` varchar(255)
+  [1m[36m (50.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20131025211741')[0m
+Migrating to AddRemovedToAreas (20131026015508)
+  [1m[35m (745.7ms)[0m  ALTER TABLE `areas` ADD `removed` tinyint(1)
+  [1m[36m (38.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20131026015508')[0m
+Migrating to AddDaysBeforeDeadlineToRemindRefereeToJournalSettings (20131030172525)
+  [1m[35m (640.2ms)[0m  ALTER TABLE `journal_settings` ADD `days_before_deadline_to_remind_referee` int(11)
+  [1m[36m (68.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20131030172525')[0m
+Migrating to AddNumberOfRequiredReportsToJournalSettings (20131031225205)
+  [1m[35m (594.6ms)[0m  ALTER TABLE `journal_settings` ADD `number_of_required_reports` int(11)
+  [1m[36m (57.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20131031225205')[0m
+Migrating to AddDaysToRemindOverdueDecisionApprovalToJournalSettings (20131031225354)
+  [1m[35m (715.1ms)[0m  ALTER TABLE `journal_settings` ADD `days_to_remind_overdue_decision_approval` int(11)
+  [1m[36m (52.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20131031225354')[0m
+Migrating to RenameColumnDueAtInRefereeAssignments (20131101010415)
+  [1m[35m (0.4ms)[0m  SHOW COLUMNS FROM `referee_assignments` LIKE 'due_at'
+  [1m[36m (447.6ms)[0m  [1mALTER TABLE `referee_assignments` CHANGE `due_at` `report_due_at` datetime DEFAULT NULL[0m
+  [1m[35m (75.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131101010415')
+Migrating to AddColumnResponseDueAtToRefereeAssignments (20131101011022)
+  [1m[36m (783.2ms)[0m  [1mALTER TABLE `referee_assignments` ADD `response_due_at` datetime[0m
+  [1m[35m (74.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131101011022')
+Migrating to AddColumnDecisionEnteredAtToSubmissions (20131109004128)
+  [1m[36m (608.7ms)[0m  [1mALTER TABLE `submissions` ADD `decision_entered_at` datetime[0m
+  [1m[35m (48.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131109004128')
+Migrating to AddDaysAfterReportsCompletedToSubmitDecisionToJournalSettings (20131212195518)
+  [1m[36m (809.8ms)[0m  [1mALTER TABLE `journal_settings` ADD `days_after_reports_completed_to_submit_decision` int(11)[0m
+  [1m[35m (82.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131212195518')
+Migrating to RemoveColumnRecommendationIdFromRefereeAssignments (20140109042829)
+  [1m[36m (652.8ms)[0m  [1mALTER TABLE `referee_assignments` DROP `recommendation_id`[0m
+  [1m[35m (49.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140109042829')
+Migrating to AddTrigrams (20141125013522)
+  [1m[36m (359.5ms)[0m  [1mCREATE TABLE `trigrams` (`id` int(11) auto_increment PRIMARY KEY, `trigram` varchar(3), `score` smallint, `owner_id` int(11), `owner_type` varchar(255), `fuzzy_field` varchar(255)) ENGINE=InnoDB[0m
+  [1m[35m (356.3ms)[0m  CREATE INDEX `index_for_match` ON `trigrams` (`owner_id`, `owner_type`, `fuzzy_field`, `trigram`, `score`)
+  [1m[36m (253.7ms)[0m  [1mCREATE INDEX `index_by_owner` ON `trigrams` (`owner_id`, `owner_type`)[0m
+  [1m[35m (56.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141125013522')
+Migrating to RenameColumnNumberOfRequiredReports (20141128023041)
+  [1m[36m (0.4ms)[0m  [1mSHOW COLUMNS FROM `journal_settings` LIKE 'number_of_required_reports'[0m
+  [1m[35m (80.6ms)[0m  ALTER TABLE `journal_settings` CHANGE `number_of_required_reports` `number_of_reports_expected` int(11) DEFAULT NULL
+  [1m[36m (32.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20141128023041')[0m
+Migrating to AddReportOriginallyDueAtToRefereeAssignment (20141202233544)
+  [1m[35m (618.1ms)[0m  ALTER TABLE `referee_assignments` ADD `report_originally_due_at` datetime
+  [1m[36m (42.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20141202233544')[0m
+Migrating to AddDaysToExtendMissedReportDeadlinesToJournalSettings (20141203004159)
+  [1m[35m (1529.6ms)[0m  ALTER TABLE `journal_settings` ADD `days_to_extend_missed_report_deadlines` int(11)
+  [1m[36m (352.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20141203004159')[0m
+Migrating to AddAttachmentForEditorToRefereeAssignments (20141223191328)
+  [1m[35m (3145.1ms)[0m  ALTER TABLE `referee_assignments` ADD `attachment_for_editor` varchar(255)
+  [1m[36m (223.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20141223191328')[0m
+Migrating to AddAttachmentForAuthorToRefereeAssignments (20141223191334)
+  [1m[35m (3790.0ms)[0m  ALTER TABLE `referee_assignments` ADD `attachment_for_author` varchar(255)
+  [1m[36m (102.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20141223191334')[0m
+Migrating to AddDaysToWaitAfterInvitationReminderToJournalSettings (20150123012553)
+  [1m[35m (994.3ms)[0m  ALTER TABLE `journal_settings` ADD `days_to_wait_after_invitation_reminder` int(11)
+  [1m[36m (73.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150123012553')[0m
+Migrating to CreateSentEmails (20150124211449)
+  [1m[35m (677.6ms)[0m  CREATE TABLE `sent_emails` (`id` int(11) auto_increment PRIMARY KEY, `submission_id` int(11), `referee_assignment_id` int(11), `action` varchar(255), `subject` varchar(255), `to` varchar(255), `cc` varchar(255), `body` text, `attachments` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (82.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150124211449')[0m
+Migrating to AddIndexes (20150205191643)
+  [1m[35m (576.3ms)[0m  CREATE INDEX `index_submissions_on_user_id` ON `submissions` (`user_id`)
+  [1m[36m (164.5ms)[0m  [1mCREATE INDEX `index_submissions_on_original_id` ON `submissions` (`original_id`)[0m
+  [1m[35m (203.7ms)[0m  CREATE INDEX `index_submissions_on_area_id` ON `submissions` (`area_id`)
+  [1m[36m (44.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150205191643')[0m
+Migrating to AddGenderToUser (20160225035343)
+  [1m[35m (401.6ms)[0m  ALTER TABLE `users` ADD `gender` varchar(255)
+  [1m[36m (23.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160225035343')[0m
+Migrating to AddHideReportFromAuthorToRefereeAssignments (20160418013132)
+  [1m[35m (351.2ms)[0m  ALTER TABLE `referee_assignments` ADD `hide_report_from_author` tinyint(1)
+  [1m[36m (24.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160418013132')[0m
+Migrating to AddEditorAreaRefToUsers (20180906135611)
+  [1m[35m (396.7ms)[0m  ALTER TABLE `users` ADD `editor_area_id` int(11)
+  [1m[36m (182.9ms)[0m  [1mCREATE INDEX `index_users_on_editor_area_id` ON `users` (`editor_area_id`)[0m
+  [1m[35m (24.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20180906135611')
+Migrating to AddEmailIndexToUsers (20190408140402)
+  [1m[36m (199.1ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_email` ON `users` (`email`)[0m
+  [1m[35m (32.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20190408140402')
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
