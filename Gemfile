@@ -12,6 +12,7 @@ gem 'fuzzily'
 gem 'whenever', require: false
 gem 'activerecord-mysql2-adapter'
 
+
 gem 'turbolinks'
 gem 'jquery-turbolinks'
 
