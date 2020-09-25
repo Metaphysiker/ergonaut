@@ -38,7 +38,7 @@ group :test do
 end
 
 group :production do
-  gem 'exception_notification'
+  #gem 'exception_notification'
 end
 
 group :assets do
