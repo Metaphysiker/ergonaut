@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'mysql2', '~> 0.3.2'
+gem 'mysql2', '~> 0.3.18'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'strong_parameters'
 gem 'kaminari'
@@ -14,6 +14,8 @@ gem 'json', '1.8.6'
 
 gem 'turbolinks'
 gem 'jquery-turbolinks'
+#gem 'mysql', '2.9.1'
+gem 'json', '1.8.6'
 
 gem 'chartkick'
 
