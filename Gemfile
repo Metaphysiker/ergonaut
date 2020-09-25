@@ -10,6 +10,7 @@ gem 'coffee-rails', '~> 3.2.1'
 gem 'thin'
 gem 'fuzzily'
 gem 'whenever', require: false
+gem 'activerecord-mysql-adapter'
 
 gem 'turbolinks'
 gem 'jquery-turbolinks'
