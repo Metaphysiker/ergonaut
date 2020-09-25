@@ -4948,3 +4948,33 @@ Processing by StaticPagesController#about as HTML
   [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` IS NULL LIMIT 1
   Rendered layouts/_footer.html.erb (2.0ms)
 Completed 200 OK in 1053ms (Views: 1043.1ms | ActiveRecord: 9.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2020-09-25 11:05:49 +0200
+Processing by StaticPagesController#about as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` IS NULL LIMIT 1[0m
+  Rendered static_pages/about.html.erb within layouts/application (205.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (25.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` IS NULL LIMIT 1
+  Rendered layouts/_footer.html.erb (1.5ms)
+Completed 200 OK in 680ms (Views: 678.0ms | ActiveRecord: 1.5ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2020-09-25 14:44:05 +0200
+Processing by StaticPagesController#about as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` IS NULL LIMIT 1[0m
+  Rendered static_pages/about.html.erb within layouts/application (247.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (29.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`remember_token` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`remember_token` IS NULL LIMIT 1
+  Rendered layouts/_footer.html.erb (1.5ms)
+Completed 200 OK in 1238ms (Views: 1206.0ms | ActiveRecord: 31.9ms)
