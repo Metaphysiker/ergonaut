@@ -11,6 +11,8 @@ gem 'thin'
 gem 'fuzzily'
 gem 'whenever', require: false
 gem 'activerecord-mysql2-adapter'
+gem 'activerecord-mysql-adapter'
+gem 'mysql'
 
 gem 'turbolinks'
 gem 'jquery-turbolinks'
