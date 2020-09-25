@@ -252,6 +252,7 @@ DEPENDENCIES
   hirb
   jquery-rails
   jquery-turbolinks
+  json
   kaminari
   launchy
   meta_request
