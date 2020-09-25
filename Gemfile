@@ -15,7 +15,7 @@ gem 'activerecord-mysql2-adapter'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'mysql'
-gem 'json'
+gem 'json', '1.8.6'
 
 gem 'chartkick'
 
